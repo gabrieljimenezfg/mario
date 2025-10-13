@@ -78,6 +78,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3361847032729253029}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9107655411173591578}
   m_SourcePrefab: {fileID: 100100000, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
 --- !u!4 &350756497027999449 stripped
 Transform:
@@ -110,6 +113,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.13, y: 4.23, z: 7.6003113}
   m_Center: {x: 1.9895197e-13, y: 0, z: 1.3944058}
+--- !u!114 &9107655411173591578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123071414836132963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0acf16035de92347a7f819e8850d2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeeController
 --- !u!1001 &2171840637906692503
 PrefabInstance:
   m_ObjectHideFlags: 0

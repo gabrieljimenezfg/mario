@@ -7,7 +7,7 @@ public class BeeController : MonoBehaviour
 
    private void Awake()
    {
-      enemyViewRange = gameObject.GetComponent<EnemyViewRange>();
+      enemyViewRange = gameObject.GetComponentInChildren<EnemyViewRange>();
    }
 
    private void Start()
