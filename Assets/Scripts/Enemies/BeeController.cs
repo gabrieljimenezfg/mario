@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BeeController : MonoBehaviour
+public class BeeController : MonoBehaviour, IEnemyWithVisionRange
 {
    private EnemyViewRange enemyViewRange;
 
@@ -10,13 +10,8 @@ public class BeeController : MonoBehaviour
       enemyViewRange = gameObject.GetComponentInChildren<EnemyViewRange>();
    }
 
-   private void Start()
+   public void HandlePlayerSeen()
    {
-      enemyViewRange.SawPlayer += BeeController_HandlePlayerSeen;
-   }
-
-   private void BeeController_HandlePlayerSeen(object sender, System.EventArgs e)
-   {
-      Debug.Log("Player Seen");
+      Debug.Log("Player Seen Interface");
    }
 }

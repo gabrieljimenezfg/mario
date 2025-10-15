@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class EnemyViewRange : MonoBehaviour
 {
-    public event EventHandler SawPlayer;
+    private IEnemyWithVisionRange enemy;
+    private void Awake()
+    {
+        enemy = gameObject.GetComponentInParent<IEnemyWithVisionRange>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         bool isPlayer = other.gameObject.CompareTag("Player");
         if (isPlayer)
         {
-            SawPlayer?.Invoke(this, EventArgs.Empty);
+            enemy.HandlePlayerSeen();
         }
     }
 }
