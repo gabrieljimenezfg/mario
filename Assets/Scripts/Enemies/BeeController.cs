@@ -3,15 +3,115 @@ using UnityEngine;
 
 public class BeeController : MonoBehaviour, IEnemyWithVisionRange
 {
-   private EnemyViewRange enemyViewRange;
+   [SerializeField]
+   private Transform patrolStartPosition;
+   [SerializeField]
+   private Transform patrolEndPosition;
+   
+   private enum State {
+      Idle,
+      Targeting,
+      Attacking,
+   }
+
+   [SerializeField] private int launchSpeed = 1;
+
+   private State state;
+   private Transform playerTransform;
+   private Vector3 launchTargetPosition;
+
+   [SerializeField]
+   private float targetingDuration = 2f;
+   private float targetingTimer = 0f;
+   [SerializeField]
+   private float maximumTargetingDuration = 10f;
+   private float elapsedTimeLaunchingTimer = 0f;
 
    private void Awake()
    {
-      enemyViewRange = gameObject.GetComponentInChildren<EnemyViewRange>();
+      state = State.Idle;
    }
 
-   public void HandlePlayerSeen()
+   public void HandlePlayerSeen(Transform playerPosition)
    {
-      Debug.Log("Player Seen Interface");
+      Debug.Log("HandlePlayerSeen");
+      if (state != State.Idle) return;
+      playerTransform = playerPosition;
+      state = State.Targeting;
+   }
+
+   private void Patrol()
+   {
+      Debug.Log("Patrolling");
+   }
+
+   private void RotateToFacePlayer()
+   {
+      transform.LookAt(playerTransform);
+   }
+
+   private void TargetPlayer()
+   {
+      targetingTimer += Time.deltaTime;
+      if (targetingTimer < targetingDuration)
+      {
+         RotateToFacePlayer();
+      }
+      else
+      {
+         targetingTimer = 0f;
+         launchTargetPosition = playerTransform.position;
+         playerTransform = null;
+         state = State.Attacking;
+      }
+   }
+
+   private void FinishAttacking()
+   {
+      state = State.Idle;
+      launchTargetPosition = Vector3.zero;
+   }
+
+   private void LaunchTowardsPlayer()
+   {
+      elapsedTimeLaunchingTimer += Time.deltaTime;
+      if (elapsedTimeLaunchingTimer >= maximumTargetingDuration)
+      {
+         FinishAttacking();
+      }
+      else
+      {
+         var distanceFromLaunchTarget = Vector3.Distance(launchTargetPosition, transform.position);
+         if (distanceFromLaunchTarget > 1)
+         {
+            var direction = launchTargetPosition - transform.position;
+            var movement = launchSpeed * Time.deltaTime * direction.normalized;
+            transform.position += movement;
+         }
+         else
+         {
+            FinishAttacking();
+         }
+      }
+   }
+
+   private void Update()
+   {
+      switch (state)
+      {
+         case State.Idle:
+            break;
+         
+         case State.Targeting:
+            TargetPlayer(); 
+            break;
+         
+         case State.Attacking:
+            LaunchTowardsPlayer();
+            break;
+         
+         default:
+            break;
+      }
    }
 }

@@ -14,7 +14,7 @@ public class EnemyViewRange : MonoBehaviour
         bool isPlayer = other.gameObject.CompareTag("Player");
         if (isPlayer)
         {
-            enemy.HandlePlayerSeen();
+            enemy.HandlePlayerSeen(other.transform);
         }
     }
 }

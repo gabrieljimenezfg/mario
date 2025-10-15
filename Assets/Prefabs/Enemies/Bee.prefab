@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3408914005320946942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6608091847005438245}
+  m_Layer: 0
+  m_Name: PatrolStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6608091847005438245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408914005320946942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350756497027999449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6009856107431326592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588108690283148403}
+  m_Layer: 0
+  m_Name: PatrolEndPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588108690283148403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009856107431326592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350756497027999449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &239986355101155634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,6 +136,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3154497113370592531}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6608091847005438245}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 588108690283148403}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f6859f134e261242adeaab46a08c794, type: 3}
       insertIndex: -1
@@ -125,6 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0acf16035de92347a7f819e8850d2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeeController
+  patrolStartPosition: {fileID: 6608091847005438245}
+  patrolEndPosition: {fileID: 588108690283148403}
+  launchSpeed: 1
+  targetingDuration: 2
+  maximumTargetingDuration: 10
 --- !u!1001 &2171840637906692503
 PrefabInstance:
   m_ObjectHideFlags: 0

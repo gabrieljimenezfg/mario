@@ -1,5 +1,7 @@
 
+using UnityEngine;
+
 public interface IEnemyWithVisionRange 
 {
-    public void HandlePlayerSeen();
+    public void HandlePlayerSeen(Transform playerPosition);
 }

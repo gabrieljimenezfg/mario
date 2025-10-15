@@ -243,11 +243,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 350756497027999449, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.77
+      value: 111.61
       objectReference: {fileID: 0}
     - target: {fileID: 350756497027999449, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.51
+      value: 10.52
       objectReference: {fileID: 0}
     - target: {fileID: 350756497027999449, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -284,6 +284,10 @@ PrefabInstance:
     - target: {fileID: 1123071414836132963, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: m_Name
       value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107655411173591578, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
+      propertyPath: launchSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
