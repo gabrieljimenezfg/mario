@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5807537541618681258}
   - component: {fileID: 3556556724916472500}
   - component: {fileID: 6954829765567405437}
+  - component: {fileID: 964530089605739479}
   - component: {fileID: 4264876588379698834}
   - component: {fileID: 7612989906553627392}
   m_Layer: 0
@@ -119,6 +120,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.7908273
   m_Center: {x: 0, y: -0.25647455, z: 0}
+--- !u!114 &964530089605739479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648023873711947139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd913423696f24f2e978003571bc5fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPlayerCollision
 --- !u!114 &4264876588379698834
 MonoBehaviour:
   m_ObjectHideFlags: 0
