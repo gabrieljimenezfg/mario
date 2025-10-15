@@ -196,6 +196,7 @@ MonoBehaviour:
   patrolStartPosition: {fileID: 6608091847005438245}
   patrolEndPosition: {fileID: 588108690283148403}
   launchSpeed: 1
+  patrolSpeed: 8
   targetingDuration: 2
   maximumTargetingDuration: 10
 --- !u!1001 &2171840637906692503

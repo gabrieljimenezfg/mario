@@ -281,9 +281,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 588108690283148403, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588108690283148403, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 1123071414836132963, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: m_Name
       value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261310655797600191, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9107655411173591578, guid: eabe2d941359b184ca244da2dc109a3b, type: 3}
       propertyPath: launchSpeed
