@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyViewRange : MonoBehaviour
 {
     private IEnemyWithVisionRange enemy;
+
     private void Awake()
     {
         enemy = gameObject.GetComponentInParent<IEnemyWithVisionRange>();
@@ -15,6 +16,15 @@ public class EnemyViewRange : MonoBehaviour
         if (isPlayer)
         {
             enemy.HandlePlayerSeen(other.transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        bool isPlayer = other.gameObject.CompareTag("Player");
+        if (isPlayer)
+        {
+            enemy.HandlePlayerExitView();
         }
     }
 }
