@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     private Text coinsText, healthText;
     [SerializeField]
     private GameObject gameOverPanel, pausePanel;
+
+    [SerializeField] private int levelCoinGoal;
     
     public void ToggleGamePause()
     {
