@@ -28,8 +28,10 @@ public class EnemyManager : MonoBehaviour
         foreach (var enemy in enemiesInLevel)
         {
             enemy.gameObject.SetActive(true);
-            var enemyController = enemy.GetComponent<EnemyController>();
-            enemyController.ResetOriginalPosition();
+            var enemyController = enemy.GetComponent<IEnemyResettable>();
+            enemyController.ResetEnemyState();
+            var enemyRespawnRestore = enemy.GetComponent<EnemyRespawnRestore>();
+            enemyRespawnRestore.ResetOriginalPosition();
         }
     }
 }

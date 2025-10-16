@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IEnemyResettable
 {
 
     [SerializeField]
@@ -9,15 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private bool listo = false;
 
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
     private bool following = false;
-
-    private void Awake()
-    {
-        originalPosition = transform.position;
-        originalRotation =  transform.rotation;
-    }
 
     private void MoveLeft()
     {
@@ -45,10 +37,8 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void ResetOriginalPosition()
+    public void ResetEnemyState()
     {
         following = false;
-        gameObject.SetActive(true);
-        transform.SetPositionAndRotation(originalPosition, originalRotation);
-    }
+    } 
 }

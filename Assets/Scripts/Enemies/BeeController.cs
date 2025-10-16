@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BeeController : MonoBehaviour, IEnemyWithVisionRange
+public class BeeController : MonoBehaviour, IEnemyWithVisionRange, IEnemyResettable
 {
     [SerializeField] private Transform patrolStartPosition;
     [SerializeField] private Transform patrolEndPosition;
@@ -84,7 +84,7 @@ public class BeeController : MonoBehaviour, IEnemyWithVisionRange
     private void RotateToFacePlayer()
     {
         var direction = playerTransform.position - transform.position;
-        // prevent bee from looking up so we can always stomp it
+        // prevenimos que la abeja pueda mirar para arriba para siempre poder aplastarla
         direction.y = Mathf.Clamp(direction.y, -1, 0);
         
         transform.forward = direction.normalized;
@@ -161,5 +161,15 @@ public class BeeController : MonoBehaviour, IEnemyWithVisionRange
             default:
                 break;
         }
+    }
+
+    public void ResetEnemyState()
+    {
+        state = State.Idle;
+        isPlayerInsideViewRange = false;
+        currentPatrolTarget = patrolStartPosition.position;
+        playerTransform = null;
+        elapsedTimeLaunchingTimer = 0f;
+        targetingTimer = 0f;
     }
 }
