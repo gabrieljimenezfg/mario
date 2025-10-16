@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4264876588379698834}
   - component: {fileID: 3351698096289421281}
   - component: {fileID: 7612989906553627392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmartEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 2351609137147190536}
   - component: {fileID: 4586684874964411180}
   - component: {fileID: 1747295830427937438}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 8582503634962586285}
   - component: {fileID: 7349445950323871241}
   - component: {fileID: 3613364121924304797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 3818447608543827019}
   - component: {fileID: 7579960462017335405}
   - component: {fileID: 7234343801082093072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 2860148796269262520}
   - component: {fileID: 1724294845876600362}
   - component: {fileID: 9065506585272961282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6633126723288539609}
   - component: {fileID: 3496505659067324530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AreaDeDeteccion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 7935923652780945358}
   - component: {fileID: 7917312210081416466}
   - component: {fileID: 2277853420450073916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

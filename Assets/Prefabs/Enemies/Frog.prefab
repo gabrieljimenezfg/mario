@@ -139,6 +139,10 @@ PrefabInstance:
       value: Frog
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de48b19104bee44d0b8935f5ba6d38ba, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de48b19104bee44d0b8935f5ba6d38ba, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -203,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5d76c7fff694ba1a283f6d9041b6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogController
-  initialEulerAngles: {x: 0, y: -90, z: 0}
   jumpForce: 300
   jumpCooldown: 2
 --- !u!114 &4265565613487821351
