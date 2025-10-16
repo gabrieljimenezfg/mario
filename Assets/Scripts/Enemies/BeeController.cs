@@ -83,13 +83,16 @@ public class BeeController : MonoBehaviour, IEnemyWithVisionRange
 
     private void RotateToFacePlayer()
     {
-        transform.LookAt(playerTransform);
+        var direction = playerTransform.position - transform.position;
+        // prevent bee from looking up so we can always stomp it
+        direction.y = Mathf.Clamp(direction.y, -1, 0);
+        
+        transform.forward = direction.normalized;
     }
 
     private void TargetPlayer()
     {
         targetingTimer += Time.deltaTime;
-        Debug.Log(targetingTimer);
         if (targetingTimer < targetingDuration)
         {
             RotateToFacePlayer();
