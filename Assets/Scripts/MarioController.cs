@@ -74,7 +74,7 @@ public class MarioController : MonoBehaviour
 
     private void PickUpCoin(GameObject coinGameObject)
     {
-        GameManager.instance.totalCoins++;
+        GameManager.instance.IncreaseOneCoin();
         lm.UpdateCoins();
         coinGameObject.SetActive(false);
     }

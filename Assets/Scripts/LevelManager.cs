@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,9 +13,8 @@ public class LevelManager : MonoBehaviour
     private Transform playerTransform;
     
     // UI
-
     [SerializeField]
-    private Text coinsText, healthText;
+    private Text coinsText, healthText, goalText;
     [SerializeField]
     private GameObject gameOverPanel, pausePanel, winPanel;
     
