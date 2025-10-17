@@ -10,22 +10,23 @@ public class GoalController : MonoBehaviour
     private void Awake()
     {
         lm = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        GameManager.instance.PickedUpCoin += GoalController_OnCoinPickedUp;
     }
 
     private void Start()
     {
+        GameManager.Instance.OnTotalCoinsChange += GoalController_OnTotalCoinsChange;
         SetMissingCoinsText();
     }
 
-    private void GoalController_OnCoinPickedUp(object sender, EventArgs e)
+    private void GoalController_OnTotalCoinsChange(object sender, EventArgs e)
     {
         SetMissingCoinsText();
     }
 
     private void SetMissingCoinsText()
     {
-        var missingCoins = CoinManager.Instance.coinsCountInLevel - GameManager.instance.totalCoins;
+        Debug.Log("SetMissingCoinsText");
+        var missingCoins = CoinManager.Instance.coinsCountInLevel - GameManager.Instance.totalCoins;
         if (missingCoins > 0)
         {
             goalText.text = "¡" + missingCoins + " más!";
@@ -41,7 +42,7 @@ public class GoalController : MonoBehaviour
         var isPlayer = other.gameObject.CompareTag("Player");
         if (!isPlayer) return;
 
-        var isCoinGoalReached = GameManager.instance.totalCoins >= CoinManager.Instance.coinsCountInLevel;
+        var isCoinGoalReached = GameManager.Instance.totalCoins >= CoinManager.Instance.coinsCountInLevel;
         if (!isCoinGoalReached) return;
 
         lm.WinLevel();

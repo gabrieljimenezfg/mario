@@ -53,19 +53,20 @@ public class LevelManager : MonoBehaviour
     public void UpdateHealth()
     {
 
-        healthText.text = "x" + GameManager.instance.healthPoints;
+        healthText.text = "x" + GameManager.Instance.healthPoints;
     }
 
     public void UpdateCoins()
     {
-        coinsText.text = GameManager.instance.totalCoins + " / " + CoinManager.Instance.coinsCountInLevel;
+        coinsText.text = GameManager.Instance.totalCoins + " / " + CoinManager.Instance.coinsCountInLevel;
+        GameManager.Instance.RefreshCoinGoalUI();
     } 
 
     public void Restart()
     {
         int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        GameManager.instance.healthPoints = 3;
-        GameManager.instance.totalCoins = 0;
+        GameManager.Instance.healthPoints = 3;
+        GameManager.Instance.totalCoins = 0;
         SceneManager.LoadScene(activeSceneIndex);
     }
 
@@ -84,7 +85,7 @@ public class LevelManager : MonoBehaviour
     {
         playerTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         EnemyManager.Instance.RespawnAllEnemies();
-        GameManager.instance.totalCoins = 0;
+        GameManager.Instance.totalCoins = 0;
         UpdateCoins(); 
         CoinManager.Instance.RespawnAllCoins();
     }
@@ -93,7 +94,7 @@ public class LevelManager : MonoBehaviour
     {
         UpdateHealth();
         UpdateCoins();
-        // HandlePlayerRespawn();
+        HandlePlayerRespawn();
         AudioManager.instance.PlayMusic(musicSong);
     }
 }

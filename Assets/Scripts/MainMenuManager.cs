@@ -10,8 +10,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayButton()
     {
-        GameManager.instance.healthPoints = 3;
-        GameManager.instance.totalCoins = 0;
+        GameManager.Instance.healthPoints = 3;
+        GameManager.Instance.totalCoins = 0;
         SceneManager.LoadScene(1);
     }
 

@@ -74,15 +74,15 @@ public class MarioController : MonoBehaviour
 
     private void PickUpCoin(GameObject coinGameObject)
     {
-        GameManager.instance.IncreaseOneCoin();
+        GameManager.Instance.IncreaseOneCoin();
         lm.UpdateCoins();
         coinGameObject.SetActive(false);
     }
 
     public void HandlePlayerHit()
     {
-        GameManager.instance.healthPoints--;
-        if (GameManager.instance.healthPoints < 0)
+        GameManager.Instance.healthPoints--;
+        if (GameManager.Instance.healthPoints < 0)
         {
             gameObject.SetActive(false);
             lm.GameOver();

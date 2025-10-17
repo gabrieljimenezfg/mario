@@ -3,23 +3,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public event EventHandler PickedUpCoin;
+    public event EventHandler OnTotalCoinsChange;
     
-    public static GameManager instance;
+    public static GameManager Instance;
     public int healthPoints = 3;
     public int totalCoins = 0;
 
     public void IncreaseOneCoin()
     {
         totalCoins++;
-        PickedUpCoin?.Invoke(this, EventArgs.Empty);
     }
 
+    public void RefreshCoinGoalUI()
+    {
+        OnTotalCoinsChange?.Invoke(this, EventArgs.Empty);
+    }
+    
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         } else
         {
