@@ -76,7 +76,7 @@ public class MarioController : MonoBehaviour
     {
         GameManager.instance.totalCoins++;
         lm.UpdateCoins();
-        Destroy(coinGameObject);
+        coinGameObject.SetActive(false);
     }
 
     public void HandlePlayerHit()

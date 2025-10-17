@@ -33,8 +33,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2860148796269262520}
   - {fileID: 8582503634962586285}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 7
-  listo: 1
+  speedAggroMultiplier: 1.5
 --- !u!114 &3351698096289421281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
+  m_Radius: 9.78
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8984740929376443974
 GameObject:

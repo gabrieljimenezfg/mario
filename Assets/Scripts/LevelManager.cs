@@ -9,18 +9,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private AudioClip musicSong;
     private Transform playerTransform;
-
+    
     // UI
+
     [SerializeField]
     private Text coinsText, healthText;
     [SerializeField]
-    private GameObject gameOverPanel, pausePanel;
-
-    [SerializeField] private int levelCoinGoal;
+    private GameObject gameOverPanel, pausePanel, winPanel;
     
     public void ToggleGamePause()
     {
-        bool isPauseActive = pausePanel.activeInHierarchy;
+        var isPauseActive = pausePanel.activeInHierarchy;
         Time.timeScale = isPauseActive ? 1 : 0;
         pausePanel.SetActive(!isPauseActive);
     }
@@ -30,6 +29,26 @@ public class LevelManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+    public void LoadNextLevel()
+    {
+        var activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        var sceneCount = SceneManager.sceneCount;
+        if (sceneCount > activeSceneIndex)
+        {
+            SceneManager.LoadScene(activeSceneIndex + 1);
+        }
+        else
+        {
+            GoToMainMenu();
+        }
+    }
+
+    public void WinLevel()
+    {
+        Time.timeScale = 0;
+        winPanel.SetActive(true);
+    }
+    
     public void UpdateHealth()
     {
 
@@ -38,7 +57,7 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateCoins()
     {
-        coinsText.text = "x" + GameManager.instance.totalCoins;
+        coinsText.text = GameManager.instance.totalCoins + " / " + CoinManager.Instance.coinsCountInLevel;
     } 
 
     public void Restart()
@@ -64,6 +83,9 @@ public class LevelManager : MonoBehaviour
     {
         playerTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         EnemyManager.Instance.RespawnAllEnemies();
+        GameManager.instance.totalCoins = 0;
+        UpdateCoins(); 
+        CoinManager.Instance.RespawnAllCoins();
     }
 
     private void Start()

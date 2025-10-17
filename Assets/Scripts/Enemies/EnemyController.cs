@@ -3,23 +3,28 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IEnemyResettable
 {
+    [SerializeField] private float speed = 0;
 
-    [SerializeField]
-    private float speed = 0;
-    [SerializeField]
-    private bool listo = false;
-
+    [SerializeField] private float idleScale = 0.5f;
+    [SerializeField] private float speedAggroMultiplier = 1.5f;
+    [SerializeField] private float scaleAggroMultiplier = 1.3f;
     private bool following = false;
 
-    private void MoveLeft()
+    private void Awake()
     {
-        Vector3 movement = speed * Time.deltaTime * Vector3.left;
+        transform.localScale = new Vector3(idleScale, idleScale, idleScale);
+    }
+
+    private void Move()
+    {
+        var speedMultiplier = following ? speedAggroMultiplier : 1;
+        var movement = (speed * speedMultiplier) * Time.deltaTime * Vector3.left;
         transform.Translate(movement, Space.World);
     }
 
     void Update()
     {
-        if (following) MoveLeft();
+        Move();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,10 +32,11 @@ public class EnemyController : MonoBehaviour, IEnemyResettable
         bool isPlayer = other.gameObject.CompareTag("Player");
         if (isPlayer)
         {
+            transform.localScale = new Vector3(scaleAggroMultiplier, scaleAggroMultiplier, scaleAggroMultiplier);
             following = true;
         }
 
-        if (listo && other.gameObject.CompareTag("EnemyLimit"))
+        if (other.gameObject.CompareTag("EnemyLimit"))
         {
             transform.eulerAngles += new Vector3(0, 180, 0);
             speed *= -1;
@@ -40,5 +46,7 @@ public class EnemyController : MonoBehaviour, IEnemyResettable
     public void ResetEnemyState()
     {
         following = false;
-    } 
+        transform.localScale = new Vector3(idleScale, idleScale, idleScale);
+        speed = speed < 0 ? speed * -1 : speed;
+    }
 }

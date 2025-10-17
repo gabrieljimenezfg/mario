@@ -119,9 +119,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.360444
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.18022203, z: 0}
 --- !u!114 &5255827281462338088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   tochosRotosPrefab: {fileID: 5884000241053571697, guid: 44509980865226f4a83d8e7f2106102d, type: 3}
   speed: 13
   jumpForce: 350
+  isGrounded: 1
 --- !u!54 &7456092315130379362
 Rigidbody:
   m_ObjectHideFlags: 0
