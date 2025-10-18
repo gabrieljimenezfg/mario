@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bouncer : MonoBehaviour
 {
-    public static EventHandler OnBounce;
+    public static event EventHandler OnBounce;
     [SerializeField] private int bounceForce = 1000;
 
     private void OnCollisionEnter(Collision collision)
@@ -16,4 +16,5 @@ public class Bouncer : MonoBehaviour
             OnBounce?.Invoke(this, EventArgs.Empty); 
         }
     }
+    public static void Reset() => OnBounce = null;
 }

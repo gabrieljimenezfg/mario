@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    private static AudioManager Instance;
     private AudioSource audioSource;
     [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private AudioClip enemyStompSound;
@@ -11,8 +12,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.volume = 0.2f;
+        if (Instance == null)   
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.volume = 0.2f;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -20,11 +29,27 @@ public class AudioManager : MonoBehaviour
         GameManager.Instance.OnCoinPickUp += AudioManager_OnPickedUpCoin;
         EnemyPlayerCollision.OnEnemyStomped += AudioManager_OnEnemyStomp;
         Bouncer.OnBounce += AudioManager_OnBounce;
+        MarioController.OnJump += AudioManager_OnJump;
     }
 
     private void PlaySound(AudioClip audioClip)
     {
         audioSource.PlayOneShot(audioClip);
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnCoinPickUp += AudioManager_OnPickedUpCoin;
+        EnemyPlayerCollision.OnEnemyStomped += AudioManager_OnEnemyStomp;
+        Bouncer.OnBounce += AudioManager_OnBounce;
+        MarioController.OnJump += AudioManager_OnJump;
+    }
+
+    private void OnDisable()
+    {
+        EnemyPlayerCollision.OnEnemyStomped -= AudioManager_OnEnemyStomp;
+        Bouncer.OnBounce -= AudioManager_OnBounce;
+        MarioController.OnJump -= AudioManager_OnJump;
     }
 
     private void AudioManager_OnPickedUpCoin(object sender, EventArgs e)

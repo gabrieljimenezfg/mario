@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
     private Text coinsText, healthText, goalText;
     [SerializeField]
     private GameObject gameOverPanel, pausePanel, winPanel;
+
+    [SerializeField] private bool isMainMenu;
     
     public void ToggleGamePause()
     {
@@ -33,8 +35,11 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         var activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        var sceneCount = SceneManager.sceneCount;
-        if (sceneCount > activeSceneIndex)
+        
+        Debug.Log("Loading level " + activeSceneIndex);
+        var sceneCount = SceneManager.sceneCountInBuildSettings;
+        Debug.Log("scene count"  + sceneCount);
+        if (sceneCount - 1 > activeSceneIndex)
         {
             SceneManager.LoadScene(activeSceneIndex + 1);
         }
@@ -77,6 +82,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        if (isMainMenu) return;
         playerTransform = GameObject.FindWithTag("Player").transform;
         Time.timeScale = 1.0f;
     }
@@ -92,9 +98,10 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        MusicManager.Instance.PlayMusic(musicSong);
+        if (isMainMenu) return;
         UpdateHealth();
         UpdateCoins();
         HandlePlayerRespawn();
-        MusicManager.Instance.PlayMusic(musicSong);
     }
 }

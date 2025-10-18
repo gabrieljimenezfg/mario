@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MarioController : MonoBehaviour
 {
-    private static EventHandler OnJump;
+    public static event EventHandler OnJump;
     
     private Rigidbody rb;
     [SerializeField]

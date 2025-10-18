@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyPlayerCollision : MonoBehaviour
 {
-    public static EventHandler OnEnemyStomped;
+    public static event EventHandler OnEnemyStomped;
     
     [SerializeField] private int jumpForceOnStomp = 300;
     private void OnCollisionEnter(Collision collision)
