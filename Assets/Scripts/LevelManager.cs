@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
     {
         UpdateHealth();
         UpdateCoins();
-        HandlePlayerRespawn();
+        // HandlePlayerRespawn();
         AudioManager.instance.PlayMusic(musicSong);
     }
 }

@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeeController
   patrolStartPosition: {fileID: 6608091847005438245}
   patrolEndPosition: {fileID: 588108690283148403}
-  launchSpeed: 1
+  launchSpeed: 10
   patrolSpeed: 8
   targetingDuration: 2
   maximumTargetingDuration: 10
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd913423696f24f2e978003571bc5fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPlayerCollision
+  jumpForceOnStomp: 300
 --- !u!114 &3815128324248251081
 MonoBehaviour:
   m_ObjectHideFlags: 0
