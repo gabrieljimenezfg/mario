@@ -25,7 +25,6 @@ public class GoalController : MonoBehaviour
 
     private void SetMissingCoinsText()
     {
-        Debug.Log("SetMissingCoinsText");
         var missingCoins = CoinManager.Instance.coinsCountInLevel - GameManager.Instance.totalCoins;
         if (missingCoins > 0)
         {

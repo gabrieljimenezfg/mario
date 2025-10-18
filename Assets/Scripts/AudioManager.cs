@@ -1,44 +1,49 @@
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
-    private AudioSource musicSource;
-    private AudioSource sfxSource;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip coinPickupSound;
+    [SerializeField] private AudioClip enemyStompSound;
+    [SerializeField] private AudioClip boingSound;
+    [SerializeField] private AudioClip jumpSound;
 
-    private void SetInstance()
+    private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.2f;
     }
 
-    void Awake()
+    private void Start()
     {
-        SetInstance();
-        musicSource = gameObject.AddComponent<AudioSource>();
-        sfxSource = gameObject.AddComponent<AudioSource>();
+        GameManager.Instance.OnCoinPickUp += AudioManager_OnPickedUpCoin;
+        EnemyPlayerCollision.OnEnemyStomped += AudioManager_OnEnemyStomp;
+        Bouncer.OnBounce += AudioManager_OnBounce;
     }
 
-    public void PlayMusic(AudioClip musicSong)
+    private void PlaySound(AudioClip audioClip)
     {
-        musicSource.clip = musicSong;
-        musicSource.Play();
+        audioSource.PlayOneShot(audioClip);
     }
 
-    public void PlaySFXSound(AudioClip sfx)
+    private void AudioManager_OnPickedUpCoin(object sender, EventArgs e)
     {
-        sfxSource.clip = sfx;
+        PlaySound(coinPickupSound);
     }
-
-    public void StopMusic()
+    
+    private void AudioManager_OnEnemyStomp(object sender, EventArgs e)
     {
-        musicSource.Stop();
+        PlaySound(enemyStompSound);
+    }
+    
+    private void AudioManager_OnBounce(object sender, EventArgs e)
+    {
+        PlaySound(boingSound);
+    }
+    
+    private void AudioManager_OnJump(object sender, EventArgs e)
+    {
+        PlaySound(jumpSound);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public event EventHandler OnTotalCoinsChange;
+    public event EventHandler OnCoinPickUp;
     
     public static GameManager Instance;
     public int healthPoints = 3;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseOneCoin()
     {
         totalCoins++;
+        OnCoinPickUp?.Invoke(this, EventArgs.Empty);
     }
 
     public void RefreshCoinGoalUI()
