@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         var activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.healthPoints = 3;
         
         Debug.Log("Loading level " + activeSceneIndex);
         var sceneCount = SceneManager.sceneCountInBuildSettings;
@@ -102,6 +103,6 @@ public class LevelManager : MonoBehaviour
         if (isMainMenu) return;
         UpdateHealth();
         UpdateCoins();
-        // HandlePlayerRespawn();
+        HandlePlayerRespawn();
     }
 }

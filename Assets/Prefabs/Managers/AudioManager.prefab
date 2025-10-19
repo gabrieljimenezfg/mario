@@ -49,3 +49,4 @@ MonoBehaviour:
   boingSound: {fileID: 8300000, guid: 46e532a650e4ca545b8cac6e9ec44001, type: 3}
   jumpSound: {fileID: 8300000, guid: d193fa85b6733aa45b41d309d5c57868, type: 3}
   smashSound: {fileID: 8300000, guid: 372f1e6ac9381fa48ad8bf2f856da620, type: 3}
+  hurtSound: {fileID: 8300000, guid: 001d9adb8e740e243a5fabd71b1bac49, type: 3}

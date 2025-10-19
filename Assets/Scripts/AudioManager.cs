@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip boingSound;
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip smashSound;
+    [SerializeField] private AudioClip hurtSound;
 
     private void Awake()
     {
@@ -53,5 +54,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySmash()
     {
         PlaySound(smashSound);
+    }
+    
+    public void PlayHurt()
+    {
+        PlaySound(hurtSound);
     }
 }

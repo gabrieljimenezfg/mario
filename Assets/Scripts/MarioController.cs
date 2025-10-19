@@ -82,6 +82,7 @@ public class MarioController : MonoBehaviour
 
     public void HandlePlayerHit()
     {
+        AudioManager.Instance.PlayHurt();
         GameManager.Instance.healthPoints--;
         if (GameManager.Instance.healthPoints < 0)
         {
