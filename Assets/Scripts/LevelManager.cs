@@ -102,6 +102,6 @@ public class LevelManager : MonoBehaviour
         if (isMainMenu) return;
         UpdateHealth();
         UpdateCoins();
-        HandlePlayerRespawn();
+        // HandlePlayerRespawn();
     }
 }

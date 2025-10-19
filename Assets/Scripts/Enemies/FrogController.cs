@@ -9,8 +9,7 @@ public class FrogController : MonoBehaviour, IEnemyWithVisionRange, IEnemyResett
     [SerializeField] private int jumpForce;
     private Transform playerTransform;
     [SerializeField] private float jumpCooldown = 2;
-    private float jumpCooldownTimer = 0;
-
+    private float jumpCooldownTimer;
 
     private void Awake()
     {
@@ -68,7 +67,8 @@ public class FrogController : MonoBehaviour, IEnemyWithVisionRange, IEnemyResett
 
     public void ResetEnemyState()
     {
+        jumpCooldownTimer = 0;
+        playerTransform = null;
         isPlayerInsideViewRange = false;
-        jumpCooldownTimer =  jumpCooldown;
     }
 }

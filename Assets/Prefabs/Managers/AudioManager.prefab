@@ -48,3 +48,4 @@ MonoBehaviour:
   enemyStompSound: {fileID: 8300000, guid: dabba9c3284f21f4a877671c71b645fb, type: 3}
   boingSound: {fileID: 8300000, guid: 46e532a650e4ca545b8cac6e9ec44001, type: 3}
   jumpSound: {fileID: 8300000, guid: d193fa85b6733aa45b41d309d5c57868, type: 3}
+  smashSound: {fileID: 8300000, guid: 372f1e6ac9381fa48ad8bf2f856da620, type: 3}

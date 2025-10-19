@@ -108,6 +108,7 @@ public class MarioController : MonoBehaviour
         if (isUnderBlock)
         {
             GameObject tochosRotosInstance = Instantiate(tochosRotosPrefab, collision.transform.position, collision.transform.rotation);
+            AudioManager.Instance.PlaySmash();
             Destroy(collision.gameObject);
             Destroy(tochosRotosInstance, 5f);
         }

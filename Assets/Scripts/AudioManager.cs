@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip enemyStompSound;
     [SerializeField] private AudioClip boingSound;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip smashSound;
 
     private void Awake()
     {
@@ -47,5 +48,10 @@ public class AudioManager : MonoBehaviour
     public void PlayJump()
     {
         PlaySound(jumpSound);
+    }
+    
+    public void PlaySmash()
+    {
+        PlaySound(smashSound);
     }
 }

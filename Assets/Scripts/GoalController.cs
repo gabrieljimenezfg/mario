@@ -14,14 +14,12 @@ public class GoalController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManager.Instance == null) return;
         GameManager.Instance.OnTotalCoinsChange += GoalController_OnTotalCoinsChange;
         SetMissingCoinsText();
     }
     
     private void OnDisable()
     {
-        if (GameManager.Instance == null) return;
         GameManager.Instance.OnTotalCoinsChange -= GoalController_OnTotalCoinsChange;
     }
 
@@ -33,7 +31,7 @@ public class GoalController : MonoBehaviour
     private void SetMissingCoinsText()
     {
         var missingCoins = CoinManager.Instance.coinsCountInLevel - GameManager.Instance.totalCoins;
-        if (missingCoins > 1)
+        if (missingCoins >= 1)
         {
             goalText.text = "¡" + missingCoins + " más!";
         }
@@ -49,7 +47,7 @@ public class GoalController : MonoBehaviour
         if (!isPlayer) return;
 
         var isCoinGoalReached = GameManager.Instance.totalCoins >= CoinManager.Instance.coinsCountInLevel;
-        // if (!isCoinGoalReached) return;
+        if (!isCoinGoalReached) return;
 
         lm.WinLevel();
     }
