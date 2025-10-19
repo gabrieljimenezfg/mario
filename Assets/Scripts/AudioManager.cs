@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager Instance;
+    public static AudioManager Instance;
     private AudioSource audioSource;
     [SerializeField] private AudioClip coinPickupSound;
     [SerializeField] private AudioClip enemyStompSound;
@@ -16,20 +16,12 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.volume = 0.2f;
         } else
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        GameManager.Instance.OnCoinPickUp += AudioManager_OnPickedUpCoin;
-        EnemyPlayerCollision.OnEnemyStomped += AudioManager_OnEnemyStomp;
-        Bouncer.OnBounce += AudioManager_OnBounce;
-        MarioController.OnJump += AudioManager_OnJump;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.2f;
     }
 
     private void PlaySound(AudioClip audioClip)
@@ -37,37 +29,22 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(audioClip);
     }
 
-    private void OnEnable()
-    {
-        GameManager.Instance.OnCoinPickUp += AudioManager_OnPickedUpCoin;
-        EnemyPlayerCollision.OnEnemyStomped += AudioManager_OnEnemyStomp;
-        Bouncer.OnBounce += AudioManager_OnBounce;
-        MarioController.OnJump += AudioManager_OnJump;
-    }
-
-    private void OnDisable()
-    {
-        EnemyPlayerCollision.OnEnemyStomped -= AudioManager_OnEnemyStomp;
-        Bouncer.OnBounce -= AudioManager_OnBounce;
-        MarioController.OnJump -= AudioManager_OnJump;
-    }
-
-    private void AudioManager_OnPickedUpCoin(object sender, EventArgs e)
+    public void PlayCoinPickup()
     {
         PlaySound(coinPickupSound);
     }
     
-    private void AudioManager_OnEnemyStomp(object sender, EventArgs e)
+    public void PlayEnemyStomp()
     {
         PlaySound(enemyStompSound);
     }
     
-    private void AudioManager_OnBounce(object sender, EventArgs e)
+    public void PlayBounce()
     {
         PlaySound(boingSound);
     }
     
-    private void AudioManager_OnJump(object sender, EventArgs e)
+    public void PlayJump()
     {
         PlaySound(jumpSound);
     }

@@ -27,7 +27,6 @@ public class MusicManager : MonoBehaviour
     
     public void PlayMusic(AudioClip musicSong)
     {
-        Debug.Log("Playing music");
         musicSource.clip = musicSong;
         musicSource.Play();
     }

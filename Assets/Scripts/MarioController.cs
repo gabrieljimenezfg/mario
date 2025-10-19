@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MarioController : MonoBehaviour
 {
-    public static event EventHandler OnJump;
-    
     private Rigidbody rb;
     [SerializeField]
     private GameObject tochosRotosPrefab;
@@ -65,7 +63,7 @@ public class MarioController : MonoBehaviour
 
         rb.AddForce(jumpVector);
         isGrounded = false;
-        OnJump?.Invoke(this, EventArgs.Empty);
+        AudioManager.Instance.PlayJump();
     }
 
     void Update()

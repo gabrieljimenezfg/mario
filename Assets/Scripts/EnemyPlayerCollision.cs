@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class EnemyPlayerCollision : MonoBehaviour
 {
-    public static event EventHandler OnEnemyStomped;
-    
     [SerializeField] private int jumpForceOnStomp = 300;
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +12,7 @@ public class EnemyPlayerCollision : MonoBehaviour
         {
             gameObject.SetActive(false);
             collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForceOnStomp);
-            OnEnemyStomped?.Invoke(this, EventArgs.Empty);
+            AudioManager.Instance.PlayEnemyStomp();
         }
         else
         {

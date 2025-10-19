@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     
     // UI
     [SerializeField]
-    private Text coinsText, healthText, goalText;
+    private Text coinsText, healthText;
     [SerializeField]
     private GameObject gameOverPanel, pausePanel, winPanel;
 
