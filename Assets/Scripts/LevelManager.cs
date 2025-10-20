@@ -37,9 +37,7 @@ public class LevelManager : MonoBehaviour
         var activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
         GameManager.Instance.healthPoints = 3;
         
-        Debug.Log("Loading level " + activeSceneIndex);
         var sceneCount = SceneManager.sceneCountInBuildSettings;
-        Debug.Log("scene count"  + sceneCount);
         if (sceneCount - 1 > activeSceneIndex)
         {
             SceneManager.LoadScene(activeSceneIndex + 1);
