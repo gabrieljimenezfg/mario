@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        MusicManager.Instance.PlayMusic(musicSong);
+        //MusicManager.Instance.PlayMusic(musicSong);
         if (isMainMenu) return;
         UpdateHealth();
         UpdateCoins();
