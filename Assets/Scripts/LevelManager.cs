@@ -97,9 +97,14 @@ public class LevelManager : MonoBehaviour
         CoinManager.Instance.RespawnAllCoins();
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     private void Start()
     {
-        //MusicManager.Instance.PlayMusic(musicSong);
+        MusicManager.Instance.PlayMusic(musicSong);
         if (isMainMenu) return;
         UpdateHealth();
         UpdateCoins();
