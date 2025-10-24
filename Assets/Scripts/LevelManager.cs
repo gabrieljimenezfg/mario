@@ -8,18 +8,15 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public Transform spawnPoint;
-    [SerializeField]
-    private AudioClip musicSong;
+    [SerializeField] private AudioClip musicSong;
     private Transform playerTransform;
-    
+
     // UI
-    [SerializeField]
-    private Text coinsText, healthText;
-    [SerializeField]
-    private GameObject gameOverPanel, pausePanel, winPanel;
+    [SerializeField] private Text coinsText, healthText, nextLevelText;
+    [SerializeField] private GameObject gameOverPanel, pausePanel, winPanel;
 
     [SerializeField] private bool isMainMenu;
-    
+
     public void ToggleGamePause()
     {
         var isPauseActive = pausePanel.activeInHierarchy;
@@ -36,7 +33,7 @@ public class LevelManager : MonoBehaviour
     {
         var activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
         GameManager.Instance.healthPoints = 3;
-        
+
         var sceneCount = SceneManager.sceneCountInBuildSettings;
         if (sceneCount - 1 > activeSceneIndex)
         {
@@ -53,10 +50,9 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         winPanel.SetActive(true);
     }
-    
+
     public void UpdateHealth()
     {
-
         healthText.text = "x" + GameManager.Instance.healthPoints;
     }
 
@@ -64,7 +60,7 @@ public class LevelManager : MonoBehaviour
     {
         coinsText.text = GameManager.Instance.totalCoins + " / " + CoinManager.Instance.coinsCountInLevel;
         GameManager.Instance.RefreshCoinGoalUI();
-    } 
+    }
 
     public void Restart()
     {
@@ -91,7 +87,7 @@ public class LevelManager : MonoBehaviour
         playerTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         EnemyManager.Instance.RespawnAllEnemies();
         GameManager.Instance.totalCoins = 0;
-        UpdateCoins(); 
+        UpdateCoins();
         CoinManager.Instance.RespawnAllCoins();
     }
 
@@ -107,5 +103,12 @@ public class LevelManager : MonoBehaviour
         UpdateHealth();
         UpdateCoins();
         HandlePlayerRespawn();
+
+        var sceneCount = SceneManager.sceneCountInBuildSettings;
+        var isLastLevel = SceneManager.GetActiveScene().buildIndex == sceneCount - 1;
+        if (isLastLevel && nextLevelText != null)
+        {
+            nextLevelText.text = "Main Menu";
+        }
     }
 }
