@@ -3094,6 +3094,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8861336245891852517, guid: 5a58b1d8a5960f34e91fe0fe3f3f14f7, type: 3}
   m_PrefabInstance: {fileID: 7368303731112962103}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &987242670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5928517184053090685, guid: 44d390eddb1f5a54b849435c1a48adb8, type: 3}
+  m_PrefabInstance: {fileID: 3198911753265677068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
 --- !u!1 &988593558
 GameObject:
   m_ObjectHideFlags: 0
@@ -6821,6 +6832,10 @@ PrefabInstance:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1002348373}
+    - target: {fileID: 448127327386095440, guid: a5b6810de62c5a54a9f42c77d6b82db9, type: 3}
+      propertyPath: nextLevelText
+      value: 
+      objectReference: {fileID: 987242670}
     - target: {fileID: 601784272817561929, guid: a5b6810de62c5a54a9f42c77d6b82db9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
